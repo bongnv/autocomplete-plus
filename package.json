@@ -1,7 +1,7 @@
 {
   "name": "autocomplete-plus",
   "version": "2.42.4",
-  "main": "./lib/main",
+  "main": "./dist/main.js",
   "description": "Display possible completions in the editor while typing",
   "repository": "https://github.com/atom/autocomplete-plus",
   "license": "MIT",
@@ -21,11 +21,22 @@
     "underscore-plus": "^1.6.6"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.0",
     "atom-jasmine3-test-runner": "^5.1.8",
     "coffeelint": "^1.9.7",
     "fs-plus": ">=2.4.0",
+    "rollup": "^3.2.3",
     "standard": "^8.3.0",
     "temp": ">=0.7.0"
+  },
+  "files": [
+    "dist",
+    "keymaps",
+    "styles"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
   },
   "providedServices": {
     "autocomplete.watchEditor": {
